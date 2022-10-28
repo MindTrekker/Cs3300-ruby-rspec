@@ -36,15 +36,35 @@ end
 # Part 2
 
 def hello(name)
-  puts ""
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if s[0] == nil || !s[0].match?(/[[:alpha:]]/) 
+    return nil
+  end
+  vowels = ['a','e','i','o','u','A','E','I','O','U']
+  vowels.each do |vowel|
+    if s.chr == vowel
+      return false
+    end
+  end
+  return true
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s =~ /[^01]/
+    return false
+  end
+  if s[1] == nil
+    if s[0] == "0"
+      return true
+    end
+  elsif s[s.length-2,2] == "00"
+    return true
+  else
+    return false
+  end
 end
 
 # Part 3
