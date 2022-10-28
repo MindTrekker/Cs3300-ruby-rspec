@@ -3,21 +3,40 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  return arr.sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  if arr[0]==nil
+    return 0
+  elsif arr[1]==nil
+    return arr[0]
+  else
+  sorted = arr.sort.reverse
+  return sorted[0]+sorted[1]
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arr[0]==nil || arr[1]==nil
+    return false
+  end
+  arr.each do |element1|
+    reduxarr = arr
+    until reduxarr[0] == nil do
+      reduxarr.drop(1)
+      if element1 + reduxarr[0] == n
+        return true
+      end
+    end
+  end
+  return false;
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  puts ""
 end
 
 def starts_with_consonant? s
