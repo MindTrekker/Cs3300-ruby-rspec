@@ -70,5 +70,33 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn
+  attr_accessor :price
+
+  def initialize(isbn,price)
+    if !isbn.include?("isbn") || isbn.length == 0
+      raise ArgumentError.new "Invalid input: isbn can only be a string"
+    else
+      @isbn = isbn
+    end
+    if price <= 0
+      raise ArgumentError.new "Invalid input: price can only be positive non-zero"
+    else
+      @price = price
+    end
+  end
+
+  def price_as_string
+    if @price.to_s =~ /.\.[0-9]/
+      if @price.to_s =~ /.\.[0-9]$/
+        "$"+@price.to_s+"0"
+      else
+        "$"+@price.to_s
+      end
+    else
+      "$"+@price.to_s+".00"
+    end
+
+
+  end
 end
